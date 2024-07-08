@@ -2,6 +2,7 @@ import { Collection } from "@/components/shared/Collection"
 import { navLinks } from "@/constants"
 import { getAllImages } from "@/lib/actions/image.actions"
 import Image from "next/image"
+import Head from "next/head"
 import Link from "next/link"
 
 const Home = async ({ searchParams }: SearchParamProps) => {
@@ -12,6 +13,15 @@ const Home = async ({ searchParams }: SearchParamProps) => {
 
   return (
     <>
+      <Head>
+        <title>Vuda AI - AI Image Manipulation</title>
+        <meta property="og:title" content="Vuda AI - AI Image Manipulation" />
+        <meta property="og:description" content="Transform, remove backgrounds, apply generative refill, and recolor objects in your images with AI." />
+        <meta property="og:image" content="https://vuda-ai.vercel.app/assets/images/og-image.png" />
+        <meta property="og:url" content="https://vuda-ai.vercel.app" />
+        <meta property="og:type" content="website" />
+      </Head>
+
       <section className="home">
         <h1 className="home-heading">
           Unleash Your Creative Vision with Vuda AI
