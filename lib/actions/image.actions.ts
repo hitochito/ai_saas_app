@@ -72,7 +72,7 @@ export async function deleteImage(imageId: string) {
     await Image.findByIdAndDelete(imageId);
   } catch (error) {
     handleError(error)
-  } finally{
+  } finally {
     redirect('/')
   }
 }
@@ -84,7 +84,7 @@ export async function getImageById(imageId: string) {
 
     const image = await populateUser(Image.findById(imageId));
 
-    if(!image) throw new Error("Image not found");
+    if (!image) throw new Error("Image not found");
 
     return JSON.parse(JSON.stringify(image));
   } catch (error) {
@@ -108,7 +108,7 @@ export async function getAllImages({ limit = 9, page = 1, searchQuery = '' }: {
       secure: true,
     })
 
-    let expression = 'folder=imaginify';
+    let expression = 'folder=ai_sass';
 
     if (searchQuery) {
       expression += ` AND ${searchQuery}`
@@ -122,7 +122,7 @@ export async function getAllImages({ limit = 9, page = 1, searchQuery = '' }: {
 
     let query = {};
 
-    if(searchQuery) {
+    if (searchQuery) {
       query = {
         publicId: {
           $in: resourceIds
@@ -130,13 +130,13 @@ export async function getAllImages({ limit = 9, page = 1, searchQuery = '' }: {
       }
     }
 
-    const skipAmount = (Number(page) -1) * limit;
+    const skipAmount = (Number(page) - 1) * limit;
 
     const images = await populateUser(Image.find(query))
       .sort({ updatedAt: -1 })
       .skip(skipAmount)
       .limit(limit);
-    
+
     const totalImages = await Image.find(query).countDocuments();
     const savedImages = await Image.find().countDocuments();
 
