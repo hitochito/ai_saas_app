@@ -94,7 +94,8 @@ export const Collection = ({
   );
 };
 
-const Card = ({ image }: { image: IImage }) => {
+// before it was IImage
+const Card = ({ image }: { image: any }) => {
   return (
     <li>
       <Link href={`/transformations/${image._id}`} className="collection-card">
@@ -114,8 +115,8 @@ const Card = ({ image }: { image: IImage }) => {
           </p>
           <Image
             src={`/assets/icons/${transformationTypes[
-                image.transformationType as TransformationTypeKey
-              ].icon
+              image.transformationType as TransformationTypeKey
+            ].icon
               }`}
             alt={image.title}
             width={24}
