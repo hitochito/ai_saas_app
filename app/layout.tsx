@@ -25,10 +25,17 @@ export const metadata: Metadata = {
         url: 'https://vuda-ai.vercel.app/assets/images/og-image.png',
         width: 1200,
         height: 630,
+        alt: 'Vuda AI - Transform, Enhance, Redefine',
       },
     ],
     locale: 'en_US',
     type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Vuda AI - AI Image Manipulation',
+    description: 'Transform, enhance, and redefine your images with AI',
+    images: ['https://vuda-ai.vercel.app/assets/images/og-image.png'],
   },
 }
 
