@@ -4,7 +4,7 @@ import { cn } from "@/lib/utils";
 import { ClerkProvider } from "@clerk/nextjs";
 
 import "./globals.css";
-import Head from "next/head";
+import { Analytics } from '@vercel/analytics/react';
 
 const IBMPlex = IBM_Plex_Sans({
   subsets: ["latin"],
@@ -51,6 +51,7 @@ export default function RootLayout({
       <html lang="en">
         <body className={cn("font-IBMPlex antialiased", IBMPlex.variable)}>
           {children}
+          <Analytics />
         </body>
       </html>
     </ClerkProvider>
